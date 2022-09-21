@@ -1,4 +1,4 @@
-exports.connect = function (pin) {
+exports.connect = function () {
   D4.set(); // LCD backlight on
   var spi = new SPI();
   spi.setup({mosi:D19 /* sda */, sck:D18 /* scl */});
