@@ -1,10 +1,15 @@
 class appChronvs {
-  constructor() {
+  constructor(tela) {
+    var tela = tela;
   }
   onClickBtn35() {
+    D4.set();
+    tela.clear();
     print(42);
   }
   onClickBtn0() {
+    D4.reset();
+    tela.clear();
     print(0);
   }
   getName() {
