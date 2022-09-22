@@ -13,7 +13,7 @@ class mainChronvs {
     var appsList = new Array();
     function loadApp(appName, index) {
       var app = new (require(appName))();
-      this.appsList.push({appName, name: app.getName(), icon: app.getIcon()});
+      appsList.push({appName, name: app.getName(), icon: app.getIcon()});
     }
     this.appsModuleList.forEach(loadApp);
   }
