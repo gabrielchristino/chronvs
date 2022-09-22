@@ -16,14 +16,14 @@ class mainChronvs {
       console.log(app.getName());
       console.log(app.getIcon());
       console.log('debug');
-      if (Array.isArray(this.appsList)) {
-        this.appsList.push({appName, name: app.getName(), icon: app.getIcon()});
+      if (Array.isArray(appsList)) {
+        appsList.push({appName, name: app.getName(), icon: app.getIcon()});
         console.log('passou aqui');
       }
     }
     this.appsModuleList.forEach(loadApp);
 
-    console.log(this.appsList);
+    console.log(appsList);
   }
 
 }
