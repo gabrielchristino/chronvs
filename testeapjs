@@ -1,0 +1,17 @@
+class appChronvs {
+  constructor() {
+  }
+  onClickBtn35() {
+    print('ola mundo');
+  }
+  onClickBtn0() {
+    print('tchau mundo');
+  }
+  getName() {
+    return 'teste';
+  }
+  getIcon() {
+    return 'this.icon';
+  }
+}
+exports = appChronvs
