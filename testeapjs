@@ -4,12 +4,12 @@ class appChronvs {
   }
   onClickBtn35() {
     D4.set();
-    tela.clear();
+    this.tela.clear();
     print('ola mundo');
   }
   onClickBtn0() {
     D4.reset();
-    tela.clear();
+    this.tela.clear();
     print('tchau mundo');
   }
   getName() {

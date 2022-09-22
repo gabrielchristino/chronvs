@@ -3,6 +3,7 @@ class mainChronvs {
     var appsModuleList;
     var selectedItem = -1;
     var currentItem = 0;
+    var appsList = new Array();
     var tela = tela;
   }
   getApps() {
@@ -10,13 +11,18 @@ class mainChronvs {
     return this.appsModuleList;
   }
   showMenu() {
-    var appsList = new Array();
+    var yPos = 0;
     function loadApp(appName, index) {
       var app = new (require(appName))();
-      appsList.push({appName, name: app.getName(), icon: app.getIcon()});
+      this.appsList.push({appName, name: app.getName(), icon: app.getIcon()});
+      if (currentItem == index) this.tela.drawRect(0, yPos, 239, 25);
+      this.tela.drawString(app.getName(), 5, yPos+1);
+      yPos += 25;
     }
     this.appsModuleList.forEach(loadApp);
   }
-
+  move(index) {
+    currentItem+=index;
+  }
 }
 exports = mainChronvs
