@@ -16,9 +16,9 @@ class screenChronvs {
   }
   setFont(scale = 1) {
     this.tela.setFontCustom(
-      E.toString(require('heatshrink').decompress(atob(getFontString()))),
+      E.toString(require('heatshrink').decompress(atob(this.getFontString()))),
       32,
-      atob(getFontSizeString()),
+      atob(this.getFontSizeString()),
       23+(scale<<8)+(1<<16)
       );
   }
