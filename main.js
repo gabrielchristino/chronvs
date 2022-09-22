@@ -9,7 +9,7 @@ class mainChronvs {
       console.log(item);
       var app = new (require(item))();
       console.log(app);
-      appsName += app.getName() + "\n"; 
+      //appsName += app.getName() + "\n"; 
     }
     appsModuleList.forEach(loadApp);
     return appsName;
