@@ -1,17 +1,21 @@
 class mainChronvs {
   constructor() {
     var appsName = "";
+    var appsModuleList;
   }
   getApps() {
-    var appsModuleList = require("Storage").list(/\apjs/);
-    var appsName = "";
+    appsModuleList = require("Storage").list(/\apjs/);
+    return appsModuleList;
+  }
+
+  showMenu() {
     function loadApp(item, index) {
       var app = new (require(item))();
-      appsName += app.getName() + "\n"; 
+      var appName = app.getName(); 
+      console.log(appName);
     }
     appsModuleList.forEach(loadApp);
-    console.log(appsName);
-    return appsName;
   }
+
 }
 exports = mainChronvs

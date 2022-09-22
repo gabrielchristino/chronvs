@@ -1,19 +1,17 @@
 class appChronvs {
   constructor() {
-    var name = 'Resposta';
-    var icon = "icon";
   }
   onClickBtn35() {
-    return 42;
+    print(42);
   }
   onClickBtn0() {
-    return 0;
+    print(0);
   }
   getName() {
-    return this.name
+    return 'Resposta';
   }
   getIcon() {
-    return this.icon
+    return 'this.icon';
   }
 }
 exports = appChronvs
