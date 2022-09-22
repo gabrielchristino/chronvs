@@ -22,6 +22,7 @@ class mainChronvs {
     this.appsModuleList.forEach(loadApp);
   }
   move(index) {
+    console.log(index);
     this.currentItem+=index;
   }
 }
