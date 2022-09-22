@@ -1,12 +1,19 @@
-  exports.onClickBtn35 = function() {
+class appChronvs {
+  constructor() {
+    var name = 'Resposta';
+    var icon = "icon";
+  }
+  onClickBtn35 = function() {
     return 42;
   };
-  exports.onClickBtn0 = function() {
+  onClickBtn0 = function() {
     return 0;
   };
-  exports.getAppProps = function() {
-    return {
-        name: 'Resposta',
-        icon: "icon"
-    };
+  getName = function() {
+    return this.name
   };
+  getIcon = function() {
+    return this.icon
+  };
+}
+exports = appChronvs
