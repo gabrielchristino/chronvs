@@ -23,7 +23,7 @@ class mainChronvs {
   }
   move(index) {
     console.log(index);
-    this.currentItem+=index;
+    //this.currentItem+=index;
   }
 }
 exports = mainChronvs
