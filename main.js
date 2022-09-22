@@ -9,14 +9,14 @@ class mainChronvs {
   }
 
   showMenu() {
-    function loadApp(item, index) {
-      var app = new (require(item))();
-      console.log(item);
+    function loadApp(appName, index) {
+      var app = new (require(appName))();
+      console.log(appName);
       console.log(app.getName());
       console.log(app.getIcon());
       console.log('');
 
-      this.appsList.push([item, app.getName(), app.getIcon()]);
+      this.appsList.push({appName, name: app.getName(), icon: app.getIcon()});
     }
     this.appsModuleList.forEach(loadApp);
 
