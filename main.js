@@ -6,9 +6,9 @@ class mainChronvs {
     var appsModuleList = require("Storage").list(/\apjs/);
     var appsName = "";
     function loadApp(item, index) {
-      console.log(item);
+      console.log('name',item);
       var app = new (require(item))();
-      console.log(app);
+      //console.log(app);
       //appsName += app.getName() + "\n"; 
     }
     appsModuleList.forEach(loadApp);
