@@ -15,8 +15,9 @@ class mainChronvs {
       console.log(app.getName());
       console.log(app.getIcon());
       console.log('');
-
-      this.appsList.push({appName, name: app.getName(), icon: app.getIcon()});
+      if (Array.isArray(this.appsList)) {
+        this.appsList.push({appName, name: app.getName(), icon: app.getIcon()});
+      }
     }
     this.appsModuleList.forEach(loadApp);
 
