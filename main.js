@@ -1,6 +1,7 @@
 class mainChronvs {
   constructor() {
     var appsModuleList;
+    var appsList = [];
   }
   getApps() {
     this.appsModuleList = require("Storage").list(/\apjs/);
@@ -8,12 +9,11 @@ class mainChronvs {
   }
 
   showMenu() {
-    var appsList = [];
     function loadApp(item, index) {
       var app = new (require(item))();
-      appsList.push({app: item, name: app.getName(), icon: app.getIcon()});
+      this.appsList.push({app: item, name: app.getName(), icon: app.getIcon()});
     }
-    console.log(appsList);
+    console.log(this.appsList);
     this.appsModuleList.forEach(loadApp);
   }
 
