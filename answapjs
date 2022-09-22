@@ -5,15 +5,15 @@ class appChronvs {
   }
   onClickBtn35() {
     return 42;
-  };
+  }
   onClickBtn0() {
     return 0;
-  };
+  }
   getName() {
     return this.name
-  };
+  }
   getIcon() {
     return this.icon
-  };
+  }
 }
 exports = appChronvs
