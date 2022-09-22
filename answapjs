@@ -1,0 +1,6 @@
+  exports.get = function() {
+    return 42;
+  };
+  exports.getName = function() {
+    return 'Resposta a tudo';
+  };
