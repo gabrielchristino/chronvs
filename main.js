@@ -14,7 +14,7 @@ class mainChronvs {
       console.log(appName);
       console.log(app.getName());
       console.log(app.getIcon());
-      console.log('');
+      console.log('debug');
       if (Array.isArray(this.appsList)) {
         this.appsList.push({appName, name: app.getName(), icon: app.getIcon()});
         console.log('passou aqui');
