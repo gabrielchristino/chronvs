@@ -3,16 +3,16 @@ class appChronvs {
     var name = 'Resposta';
     var icon = "icon";
   }
-  onClickBtn35 = function() {
+  onClickBtn35() {
     return 42;
   };
-  onClickBtn0 = function() {
+  onClickBtn0() {
     return 0;
   };
-  getName = function() {
+  getName() {
     return this.name
   };
-  getIcon = function() {
+  getIcon() {
     return this.icon
   };
 }
