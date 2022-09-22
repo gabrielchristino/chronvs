@@ -1,6 +1,5 @@
 class mainChronvs {
   constructor() {
-    var appsList = [];
     var appsModuleList;
   }
   getApps() {
@@ -9,6 +8,7 @@ class mainChronvs {
   }
 
   showMenu() {
+    var appsList = [];
     function loadApp(item, index) {
       var app = new (require(item))();
       appsList.push([item, app.getName(), app.getIcon()]); 
