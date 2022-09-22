@@ -9,7 +9,7 @@ class mainChronvs {
   }
 
   showMenu() {
-    var appsList = [{}];
+    var appsList = new Array();
     function loadApp(appName, index) {
       var app = new (require(appName))();
       console.log(appName);
