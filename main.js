@@ -15,14 +15,14 @@ class mainChronvs {
     function loadApp(appName, index) {
       var app = new (require(appName))();
       this.appsList.push({appName, name: app.getName(), icon: app.getIcon()});
-      if (currentItem == index) this.tela.drawRect(0, yPos, 239, 25);
+      if (this.currentItem == index) this.tela.drawRect(0, yPos, 239, 25);
       this.tela.drawString(app.getName(), 5, yPos+1);
       yPos += 25;
     }
     this.appsModuleList.forEach(loadApp);
   }
   move(index) {
-    currentItem+=index;
+    this.currentItem+=index;
   }
 }
 exports = mainChronvs
