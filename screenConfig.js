@@ -1,6 +1,6 @@
 class screenChronvs {
   constructor() {
-    var tela = {};
+    this.tela = {};
   }
   connect() {
     D4.set(); // LCD backlight on
