@@ -21,8 +21,10 @@ class mainChronvs {
   showMenu() {
     var yPos = 0;
     this.tela.clear();
+    this.tela.drawString('app.name', 5, 50);
     this.appsList.forEach((app, index) => {
-      if (this.currentItem == index) this.tela.drawRect(0, yPos, 239, yPos+25);
+      //if (this.currentItem == index) {this.tela.drawRect(0, yPos, 239, yPos+25);}
+      console.log(app.name);
       this.tela.drawString(app.name, 5, yPos+1);
       yPos += 25;
     });
@@ -34,11 +36,7 @@ class mainChronvs {
     } else if(this.currentItem > this.appsList.length - 1) {
       this.currentItem = 0;
     }
-    this.showMenu();
     console.log(this.currentItem);
-  }
-  openApp() {
-    console.log('this.appsList');
   }
 }
 exports = mainChronvs

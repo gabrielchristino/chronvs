@@ -1,3 +1,4 @@
+var tela = {};
 class screenChronvs {
   constructor() {
     this.tela = {};
