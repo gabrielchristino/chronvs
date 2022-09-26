@@ -13,6 +13,7 @@ class screenChronvs {
       temp.drawString("teste",0,0);
     });
     this.tela = temp;
+    console.log(temp);
     return temp;
   }
   setFont(scale = 1) {
