@@ -1,29 +1,27 @@
-var g = new (require("https://gabrielchristino.github.io/chronvs/screenConfig.js"))();
+D4.set(); // LCD backlight on
+var spi = new SPI();
+spi.setup({mosi:D19 /* sda */, sck:D18 /* scl */});
+var tela = require("ST7789").connect(spi, D16 /* DC */, D5 /* CE */, D23 /* RST */, function() {});
 
-g.connect();
-g.setFont();
-var tela = g.getScreen();
+var mainChronvs = new (require("main"))(this.tela);
 
-var mainChronvs = new (require("main"))(tela);
-
-tela.setRotation(1);
-tela.clear();
-tela.clear();
+this.tela.setRotation(1);
+this.tela.clear();
 
 var appsName = mainChronvs.getApps();
-var app = new (require("answapjs"))(tela);
+var app = new (require("answapjs"))(this.tela);
 
 setWatch(function(){
   console.log("1");
-  //app.onClickBtn35();
-  mainChronvs.move(-1);
-}, D35, { repeat: true, edge: "falling", debounce:20 });
+  app.onClickBtn35();
+  //mainChronvs.move(-1);
+}, D35, { repeat: true, edge: "falling", debounce:30 });
 
 setWatch(function(){
   console.log("2");
-  //app.onClickBtn0();
-  mainChronvs.move(1);
-}, D0, { repeat: true, edge: "falling", debounce:20 });
+  app.onClickBtn0();
+  //mainChronvs.move(1);
+}, D0, { repeat: true, edge: "falling", debounce:30 });
 
 /*setWatch(function(){
   //app.onClickBtn0();
