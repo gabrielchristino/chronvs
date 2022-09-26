@@ -13,6 +13,7 @@ class screenChronvs {
           atob("BgYIEA4SDwQHBwgNBAkEBw8IDQ0PDQ4NDg4EBA0NDQ0YEBEQEw8OEhMHCxANFhMTEBMQDg0SDxkODg8HBwcNDA4NDw0PDgcQDwYGDQYZDw4PDwkLCQ8MEwsMCwcHBw0A"),
           23+(this.scale<<8)+(1<<16)
         );
+    this.tela.clear();
     return this.tela;
   }
 }
