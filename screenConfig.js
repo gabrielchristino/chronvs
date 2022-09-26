@@ -11,7 +11,7 @@ class screenChronvs {
     temp.clear();
     temp.setRotation(1);
     temp.drawString("Hello",0,0);
-
+    console.log(temp);
     this.tela = temp;
   }
   setFont(scale = 1) {
