@@ -1,0 +1,17 @@
+class utilsChronvs {
+  constructor(tela) {
+    this.tela = tela;
+    this.main = {};
+  }
+  clearScreen() {
+    D4.set();
+    this.tela.clear();
+  }
+  setMain(main) {
+    this.main = main;
+  }
+  getMain() {
+    return this.main;
+  }
+}
+exports = utilsChronvs

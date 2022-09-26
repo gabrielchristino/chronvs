@@ -1,0 +1,31 @@
+class appChronvs {
+  constructor(tela, main, utils) {
+    this.tela = tela;
+    this.main = main;
+    this.utils = utils;
+  }
+  onInit() {
+    this.utils.clearScreen();
+    this.tela.drawString("Teste",0,0);
+  }
+  getName() {
+    return 'teste';
+  }
+  getIcon() {
+    return 'this.icon';
+  }
+  onClickBtn35() {
+    this.onInit();
+    this.tela.drawString("42",0,30);
+    return this;
+  }
+  onClickBtn0() {
+    this.onInit();
+    this.tela.drawString("44",0,30);
+    return this;
+  }
+  onClickBtn12() {
+    return this.utils.getMain();
+  }
+}
+exports = appChronvs

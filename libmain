@@ -2,29 +2,31 @@ var currentItem = 0
 var selectedItem = -1;
 var appsList = new Array();
 class mainChronvs {
-  constructor(tela) {
+  constructor(tela, utils) {
     this.tela = tela;
     this.appsModuleList;
     this.selectedItem = -1;
     this.currentItem = 0;
     this.appsList = new Array();
-  }
-  getApps() {
+    this.utils = utils;
+
+    this.utils.setMain(this);
+
     this.appsModuleList = require("Storage").list(/\apjs/);
     this.appsModuleList.forEach((appName, index) => {
+      print(appName);
       var app = new (require(appName))();
       this.appsList.push({appName, name: app.getName(), icon: app.getIcon()});
     });
-    this.tela.clear();
-    return this.appsModuleList;
+  }
+  onInit() {
+    this.showMenu();
   }
   showMenu() {
+    this.utils.clearScreen();
     var yPos = 0;
-    this.tela.clear();
-    this.tela.drawString('app.name', 5, 50);
     this.appsList.forEach((app, index) => {
-      //if (this.currentItem == index) {this.tela.drawRect(0, yPos, 239, yPos+25);}
-      console.log(app.name);
+      if (this.currentItem == index) {this.tela.drawRect(0, yPos, 239, yPos+25);}
       this.tela.drawString(app.name, 5, yPos+1);
       yPos += 25;
     });
@@ -36,7 +38,27 @@ class mainChronvs {
     } else if(this.currentItem > this.appsList.length - 1) {
       this.currentItem = 0;
     }
-    console.log(this.currentItem);
+    this.showMenu();
+  }
+  openApp() {
+    var app = new (require(this.appsList[this.currentItem].appName))(this.tela, this, this.utils);
+    return app;
+  }
+  getName() {
+    return 'Main';
+  }
+  onClickBtn35() {
+    this.utils.clearScreen();
+    this.move(-1);
+    return this;
+  }
+  onClickBtn0() {
+    this.utils.clearScreen();
+    this.move(1);
+    return this;
+  }
+  onClickBtn12() {
+    return this.openApp();
   }
 }
 exports = mainChronvs
