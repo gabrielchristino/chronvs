@@ -1,4 +1,4 @@
-var tela = new (require("https://gabrielchristino.github.io/chronvs/libscreen"))().connect();
+var tela = new (require("https://gabrielchristino.github.io/chronvs/libscreen.js"))().connect();
 var utils = new (require("libutils"))(this.tela);
 
 var main = new (require("libmain"))(this.tela, this.utils);
@@ -6,7 +6,6 @@ var app = this.main;
 
 this.tela.setRotation(1);
 this.tela.clear();
-
 this.app.onInit();
 
 setWatch(function(){

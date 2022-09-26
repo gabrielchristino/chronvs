@@ -13,5 +13,8 @@ class utilsChronvs {
   getMain() {
     return this.main;
   }
+  drwStr(valor, x, y) {
+    this.tela.drawString(this.tela.wrapString(valor, this.tela.getWidth()).join("\n"), x, y);
+  }
 }
 exports = utilsChronvs

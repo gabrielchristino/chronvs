@@ -6,25 +6,26 @@ class appChronvs {
   }
   onInit() {
     this.utils.clearScreen();
-    this.utils.drwStr("resposta",0,0);
+    D4.reset();
   }
   getName() {
-    return 'Resposta';
+    return 'Lock screen';
   }
   getIcon() {
     return 'this.icon';
   }
   onClickBtn35() {
-    this.onInit();
-    this.utils.drwStr("123456789abcdef",0,30);
-    return this;
+    this.utils.clearScreen();
+    this.main.onInit();
+    return this.utils.getMain();
   }
   onClickBtn0() {
-    this.onInit();
-    this.utils.drwStr("44",0,30);
-    return this;
+    this.utils.clearScreen();
+    this.main.onInit();
+    return this.utils.getMain();
   }
   onClickBtn12() {
+    this.utils.clearScreen();
     return this.utils.getMain();
   }
 }

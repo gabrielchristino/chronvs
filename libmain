@@ -6,7 +6,7 @@ class mainChronvs {
     this.tela = tela;
     this.appsModuleList;
     this.selectedItem = -1;
-    this.currentItem = 0;
+    this.currentItem = -1;
     this.appsList = new Array();
     this.utils = utils;
 
@@ -14,7 +14,6 @@ class mainChronvs {
 
     this.appsModuleList = require("Storage").list(/\apjs/);
     this.appsModuleList.forEach((appName, index) => {
-      print(appName);
       var app = new (require(appName))();
       this.appsList.push({appName, name: app.getName(), icon: app.getIcon()});
     });
@@ -26,8 +25,8 @@ class mainChronvs {
     this.utils.clearScreen();
     var yPos = 0;
     this.appsList.forEach((app, index) => {
-      if (this.currentItem == index) {this.tela.drawRect(0, yPos, 239, yPos+25);}
-      this.tela.drawString(app.name, 5, yPos+1);
+      if (this.currentItem == index) {this.tela.drawRect(0, yPos, this.tela.getWidth()-1, yPos+25);}
+      this.utils.drwStr(app.name, 5, yPos+1);
       yPos += 25;
     });
   }
@@ -49,7 +48,7 @@ class mainChronvs {
   }
   onClickBtn35() {
     this.utils.clearScreen();
-    this.move(-1);
+    this.move(1);
     return this;
   }
   onClickBtn0() {

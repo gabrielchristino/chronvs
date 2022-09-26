@@ -6,7 +6,7 @@ class appChronvs {
   }
   onInit() {
     this.utils.clearScreen();
-    this.tela.drawString("Teste",0,0);
+    this.utils.drwStr("Teste",0,0);
   }
   getName() {
     return 'teste';
@@ -16,12 +16,12 @@ class appChronvs {
   }
   onClickBtn35() {
     this.onInit();
-    this.tela.drawString("42",0,30);
+    this.utils.drwStr("123456789abcdef",0,30);
     return this;
   }
   onClickBtn0() {
     this.onInit();
-    this.tela.drawString("44",0,30);
+    this.utils.drwStr("44",0,30);
     return this;
   }
   onClickBtn12() {
