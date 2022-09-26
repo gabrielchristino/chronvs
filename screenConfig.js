@@ -7,10 +7,11 @@ class screenChronvs {
     D4.set(); // LCD backlight on
     var spi = new SPI();
     spi.setup({mosi:D19 /* sda */, sck:D18 /* scl */});
-    var temp = require("ST7789").connect(spi, D16 /* DC */, D5 /* CE */, D23 /* RST */, function() {});
-    temp.clear();
-    temp.setRotation(1);
-    temp.drawString("Hello",0,0);
+    var temp = require("ST7789").connect(spi, D16 /* DC */, D5 /* CE */, D23 /* RST */, function() {
+      temp.clear();
+      temp.setRotation(1);
+      temp.drawString("Hello",0,0);
+    });
     console.log(temp);
     this.tela = temp;
   }
