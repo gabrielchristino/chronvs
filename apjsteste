@@ -16,7 +16,7 @@ class appChronvs {
   }
   onClickBtn35() {
     this.onInit();
-    this.utils.drwStr("123456789abcdef",0,30);
+    this.utils.drwStr("123456789asdfghjklzxcvbnmqwertyuiop",0,30);
     return this;
   }
   onClickBtn0() {

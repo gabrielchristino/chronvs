@@ -5,8 +5,8 @@ class appChronvs {
     this.utils = utils;
   }
   onInit() {
-    this.utils.clearScreen();
     D4.reset();
+    this.utils.clearScreen();
   }
   getName() {
     return 'Lock screen';
