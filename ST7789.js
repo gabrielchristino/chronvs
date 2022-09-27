@@ -19,8 +19,8 @@ var g = require("ST7789").connect(spi, D16, D5, D23, function() {
 ```
 
 */
-const LCD_WIDTH = 240;
-const LCD_HEIGHT = 135;
+const LCD_WIDTH = 135;
+const LCD_HEIGHT = 240;
 const COLSTART = 52;
 const ROWSTART = 40;
 
@@ -47,8 +47,8 @@ function init(spi, dc, ce, rst, callback) {
         // This is an unrotated screen
         [0x36, 0],     // MADCTL
         // These 2 rotate the screen by 180 degrees
-        //[0x36,0xC0],     // MADCTL
-        //0x37,[0,80]],   // VSCSAD (37h): Vertical Scroll Start Address of RAM
+        //0x36,0xC0],     // MADCTL
+        [0x37,[0,80]],   // VSCSAD (37h): Vertical Scroll Start Address of RAM
 
         [0x3A, 0x55],  // COLMOD - interface pixel format - 16bpp
         [0xB2, [0xC, 0xC, 0, 0x33, 0x33]], // PORCTRL (B2h): Porch Setting
@@ -105,3 +105,31 @@ exports.connect = function (spi, dc, ce, rst, callback) {
     init(spi, dc, ce, rst, callback);
     return g;
 };
+
+
+// // this produces skewed output, further investigation needed...
+// exports.connectPaletted = function (palette, spi, dc, ce, rst, callback) {
+//     var bits;
+//     if (palette.length > 16) bits = 8;
+//     else if (palette.length > 4) bits = 4;
+//     else if (palette.length > 2) bits = 2;
+//     else bits = 1;
+//     var g = Graphics.createArrayBuffer(LCD_WIDTH, LCD_HEIGHT, bits, { msb: true });
+//     g.flip = function () {
+//         ce.reset();
+//         spi.write(0x2A, dc);
+//         spi.write(0, COLSTART, (COLSTART+LCD_WIDTH)>>8, COLSTART+LCD_WIDTH);
+//         spi.write(0x2B, dc);
+//         spi.write(0, ROWSTART, (ROWSTART+LCD_HEIGHT)>>8, ROWSTART+LCD_HEIGHT);
+//         spi.write(0x2C, dc);
+//         var lines = 16; // size of buffer to use for un-paletting
+//         var a = new Uint16Array(LCD_WIDTH * lines);
+//         for (var y = 0; y < LCD_HEIGHT; y += lines) {
+//             E.mapInPlace(new Uint8Array(g.buffer, y * LCD_WIDTH * bits / 8, a.length), a, palette, bits);
+//             spi.write(a.buffer);
+//         }
+//         ce.set();
+//     };
+//     init(spi, dc, ce, rst, callback);
+//     return g;
+// };
