@@ -6,7 +6,7 @@ class appChronvs {
   }
   onInit() {
     this.utils.clearScreen();
-
+    this.utils.setFontB();
     var today  = new Date();
     var hora = '00' + today.getHours();
     hora = hora.substr(-2);
@@ -23,19 +23,23 @@ class appChronvs {
   }
   onClickBtn35() {
     this.utils.clearScreen();
+    this.utils.setFontA();
     this.main.onInit();
     return this.utils.getMain();
   }
   onClickBtn0() {
     this.utils.clearScreen();
+    this.utils.setFontA
     this.main.onInit();
     return this.utils.getMain();
   }
   onClickBtn12() {
     this.utils.clearScreen();
+    this.utils.setFontA
     return this.utils.getMain();
   }
   onClickBtn21() {
+    this.utils.setFontA
     return this.utils.getMain();
   }
 }

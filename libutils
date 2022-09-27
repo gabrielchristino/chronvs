@@ -1,6 +1,7 @@
 class utilsChronvs {
-  constructor(tela) {
+  constructor(tela, libscreen) {
     this.tela = tela;
+    this.libscreen = libscreen;
     this.main = {};
   }
   clearScreen() {
@@ -15,6 +16,12 @@ class utilsChronvs {
   }
   drwStr(valor, x, y) {
     this.tela.drawString(this.tela.wrapString(valor, this.tela.getWidth()).join("\n"), x, y);
+  }
+  setFontA() {
+    this.libscreen.setFontA();
+  }
+  setFontB() {
+    this.libscreen.setFontB();
   }
 }
 exports = utilsChronvs
