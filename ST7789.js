@@ -21,7 +21,7 @@ var g = require("ST7789").connect(spi, D16, D5, D23, function() {
 */
 const LCD_WIDTH = 240;
 const LCD_HEIGHT = 135;
-const COLSTART = 60;
+const COLSTART = 40;
 const ROWSTART = 52;
 
 
@@ -45,9 +45,9 @@ function init(spi, dc, ce, rst, callback) {
         // CMD, D0,D1,D2...
         [0x11, 0],     //SLPOUT (11h):
         // This is an unrotated screen
-        [0x36, 0],     // MADCTL
+        //[0x36, 0],     // MADCTL
         // These 2 rotate the screen by 180 degrees
-        //0x36,0xC0],     // MADCTL
+        [0x36,0xC0],     // MADCTL
         //[0x37,[0,80]],   // VSCSAD (37h): Vertical Scroll Start Address of RAM
 
         [0x3A, 0x55],  // COLMOD - interface pixel format - 16bpp
