@@ -1,3 +1,4 @@
+
 /* Copyright (c) 2020 Akos Lukacs, based on code by Gordon Williams and https://github.com/Bodmer/TFT_eSPI. See the file LICENSE for copying permission. */
 /*
 Module for the ST7789 135x240 LCD controller
@@ -20,8 +21,8 @@ var g = require("ST7789").connect(spi, D16, D5, D23, function() {
 
 */
 const LCD_WIDTH = 240;
-const LCD_HEIGHT = 135;
-const COLSTART = 52;
+const LCD_HEIGHT = 240;
+const COLSTART = -53;
 const ROWSTART = 40;
 
 
@@ -45,7 +46,7 @@ function init(spi, dc, ce, rst, callback) {
         // CMD, D0,D1,D2...
         [0x11, 0],     //SLPOUT (11h):
         // This is an unrotated screen
-        [0x36, 1],     // MADCTL
+        [0x36, 0],     // MADCTL
         // These 2 rotate the screen by 180 degrees
         //[0x36,0xC0],     // MADCTL
         //[0x37,[0,80]],   // VSCSAD (37h): Vertical Scroll Start Address of RAM
