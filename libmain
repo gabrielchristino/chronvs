@@ -22,25 +22,32 @@ class mainChronvs {
     this.showMenu();
   }
   showMenu() {
+    if(this.currentItem < 0) {
+      this.currentItem = this.appsList.length - 1;
+      
+    } else if(this.currentItem > this.appsList.length - 1) {
+      this.currentItem = 0;
+    }
     this.utils.clearScreen();
-    var yPos = 0;
+    var yPos = -25*this.currentItem;
     this.appsList.forEach((app, index) => {
-      if (this.currentItem == index) {this.tela.drawRect(0, yPos, this.tela.getWidth()-1, yPos+25);}
-      this.utils.drwStr(app.name, 5, yPos+1);
+      if(index == this.currentItem) this.tela.drawRect(0, 0, this.tela.getWidth()-1, 25);
+      this.utils.drwStr(app.icon, 1, yPos+1);
+      this.utils.drwStr(app.name, 24, yPos+1);
       yPos += 25;
     });
   }
   move(index) {
     this.currentItem+=Number(index);
-    if(this.currentItem < 0) {
-      this.currentItem = this.appsList.length - 1;
-    } else if(this.currentItem > this.appsList.length - 1) {
-      this.currentItem = 0;
-    }
     this.showMenu();
   }
   openApp() {
-    var app = new (require(this.appsList[this.currentItem].appName))(this.tela, this, this.utils);
+    var app;
+    if(this.currentItem < 0) {
+      app = new (require("apjsclock"))(this.tela, this, this.utils);
+    } else {
+      app = new (require(this.appsList[this.currentItem].appName))(this.tela, this, this.utils);
+    }
     return app;
   }
   getName() {
@@ -48,7 +55,7 @@ class mainChronvs {
   }
   onClickBtn35() {
     this.utils.clearScreen();
-    this.move(1);
+    this.move(-1);
     return this;
   }
   onClickBtn0() {
@@ -57,6 +64,9 @@ class mainChronvs {
     return this;
   }
   onClickBtn12() {
+    return this.openApp();
+  }
+  onClickBtn21() {
     return this.openApp();
   }
 }

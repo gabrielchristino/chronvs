@@ -4,8 +4,8 @@ class utilsChronvs {
     this.main = {};
   }
   clearScreen() {
-    D4.set();
     this.tela.clear();
+    D4.set();
   }
   setMain(main) {
     this.main = main;

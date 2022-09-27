@@ -6,14 +6,20 @@ class appChronvs {
   }
   onInit() {
     this.utils.clearScreen();
-    var dataHora = new Date();
-    this.utils.drwStr(dataHora,0,0);
+
+    var today  = new Date();
+    var hora = '00' + today.getHours();
+    hora = hora.substr(-2);
+    var minuto = '00' + today.getMinutes();
+    minuto = minuto.substr(-2);
+    console.log(hora+':'+minuto);
+    this.utils.drwStr(hora+':'+minuto,0,0);
   }
   getName() {
     return 'Time';
   }
   getIcon() {
-    return 'this.icon';
+    return atob("ABYWwwD//27TzuMOyy3sTtOu287CAAEkkkkiQAAAEkkkkkSSQAAkkkkkiSSWAEkkkkkSSS2wEkkkkiSSW2wkkkAkSQAG2JkkkAiSAQGxNkkkAiSA2BJtkkkASSAABNtkkkASSwAJtrkkiASW2ANtbkkSAS22AtrbkiSAG2xAtbbkSQAA2JArbbiSQWAxNAbbbSSQGAJtAbb/SSQABNtAbf/CS2xJtrbb/4CW2xNtbbf/4A22Jtrbb//AAGxNtbbf/4AAABNrbbf4AAA=");
   }
   onClickBtn35() {
     this.utils.clearScreen();
@@ -27,6 +33,9 @@ class appChronvs {
   }
   onClickBtn12() {
     this.utils.clearScreen();
+    return this.utils.getMain();
+  }
+  onClickBtn21() {
     return this.utils.getMain();
   }
 }

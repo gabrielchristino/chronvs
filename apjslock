@@ -12,7 +12,7 @@ class appChronvs {
     return 'Lock screen';
   }
   getIcon() {
-    return 'this.icon';
+    return atob("ABYWwwD//27TzuMOyy3sTtOu287CAAEkkkkiQAAAEkkkkkSSQAAkkkkkiSSWAEkkkkkSSS2wEkkkkiSSW2wkkkAkSQAG2JkkkAiSAQGxNkkkAiSA2BJtkkkASSAABNtkkkASSwAJtrkkiASW2ANtbkkSAS22AtrbkiSAG2xAtbbkSQAA2JArbbiSQWAxNAbbbSSQGAJtAbb/SSQABNtAbf/CS2xJtrbb/4CW2xNtbbf/4A22Jtrbb//AAGxNtbbf/4AAABNrbbf4AAA=");
   }
   onClickBtn35() {
     this.utils.clearScreen();
@@ -25,6 +25,10 @@ class appChronvs {
     return this.utils.getMain();
   }
   onClickBtn12() {
+    this.utils.clearScreen();
+    return this.utils.getMain();
+  }
+  onClickBtn21() {
     this.utils.clearScreen();
     return this.utils.getMain();
   }
