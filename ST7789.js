@@ -21,8 +21,8 @@ var g = require("ST7789").connect(spi, D16, D5, D23, function() {
 */
 const LCD_WIDTH = 135;
 const LCD_HEIGHT = 240;
-const COLSTART = 0;
-const ROWSTART = 0;
+const COLSTART = 52;
+const ROWSTART = 40;
 
 
 function init(spi, dc, ce, rst, callback) {
