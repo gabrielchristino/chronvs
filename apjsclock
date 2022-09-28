@@ -6,14 +6,16 @@ class appChronvs {
   }
   onInit() {
     this.utils.clearScreen();
-    this.utils.setFontB();
+    this.tela.setFontAlign(0, 0, 0);
+    this.tela.setFont("Vector:80");
+    this.tela.set
     var today  = new Date();
     var hora = '00' + today.getHours();
     hora = hora.substr(-2);
     var minuto = '00' + today.getMinutes();
     minuto = minuto.substr(-2);
     console.log(hora+':'+minuto);
-    this.utils.drwStr(hora+':'+minuto,0,0);
+    this.utils.drwStr(hora+':'+minuto,this.tela.getWidth()/2,this.utils.getHeight()/2);
   }
   getName() {
     return 'Time';
@@ -24,22 +26,26 @@ class appChronvs {
   onClickBtn35() {
     this.utils.clearScreen();
     this.utils.setFontA();
+    this.tela.setFontAlign(-1, -1, 0);
     this.main.onInit();
     return this.utils.getMain();
   }
   onClickBtn0() {
     this.utils.clearScreen();
-    this.utils.setFontA
+    this.utils.setFontA();
+    this.tela.setFontAlign(-1, -1, 0);
     this.main.onInit();
     return this.utils.getMain();
   }
   onClickBtn12() {
     this.utils.clearScreen();
-    this.utils.setFontA
+    this.utils.setFontA();
+    this.tela.setFontAlign(-1, -1, 0);
     return this.utils.getMain();
   }
   onClickBtn21() {
-    this.utils.setFontA
+    this.utils.setFontA();
+    this.tela.setFontAlign(-1, -1, 0);
     return this.utils.getMain();
   }
 }

@@ -20,5 +20,8 @@ class utilsChronvs {
   setFontA() {
     this.libscreen.setFontA();
   }
+  getHeight() {
+    return 135;
+  }
 }
 exports = utilsChronvs

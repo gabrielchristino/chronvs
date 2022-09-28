@@ -26,11 +26,13 @@ class appChronvs {
   }
   onClickBtn12() {
     this.utils.clearScreen();
-    return this.utils.getMain();
+    var app = new (require("apjsclock"))(this.tela, this, this.utils);
+    return var;
   }
   onClickBtn21() {
     this.utils.clearScreen();
-    return this.utils.getMain();
+    var app = new (require("apjsclock"))(this.tela, this, this.utils);
+    return var;
   }
 }
 exports = appChronvs
