@@ -20,8 +20,5 @@ class utilsChronvs {
   setFontA() {
     this.libscreen.setFontA();
   }
-  setFontB() {
-    this.libscreen.setFontB();
-  }
 }
 exports = utilsChronvs
