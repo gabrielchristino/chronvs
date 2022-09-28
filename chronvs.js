@@ -1,11 +1,10 @@
-var tela = new (require("https://gabrielchristino.github.io/chronvs/libscreen.js"))().connect();
-var utils = new (require("libutils"))(this.tela);
+var libscreen = new (require("https://gabrielchristino.github.io/chronvs/libscreen.js"))();
+
+var tela = this.libscreen.connect();
+var utils = new (require("libutils"))(this.tela, this.libscreen);
 
 var main = new (require("libmain"))(this.tela, this.utils);
 var app = this.main;
-
-this.tela.setRotation(1);
-this.tela.clear();
 
 setWatch(function(e){
   if(e.time-e.lastTime > 1) {
@@ -44,6 +43,7 @@ setWatch(function(e){
 }, D21, { repeat: true, edge: "rising", debounce:20 });
 
 setTimeout(() => {
+  this.utils.setFontA();
   this.tela.setRotation(1);
   this.tela.clear();
 }, 100);
