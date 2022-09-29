@@ -4,8 +4,8 @@ class appChronvs {
     this.utils = utils;
   }
   onInit() {
-    D4.reset();
     this.utils.clearScreen();
+    D4.reset();
   }
   getName() {
     return 'Lock screen';
@@ -14,20 +14,20 @@ class appChronvs {
     return atob("ABYWwwD//27TzuMOyy3sTtOu287CAAEkkkkiQAAAEkkkkkSSQAAkkkkkiSSWAEkkkkkSSS2wEkkkkiSSW2wkkkAkSQAG2JkkkAiSAQGxNkkkAiSA2BJtkkkASSAABNtkkkASSwAJtrkkiASW2ANtbkkSAS22AtrbkiSAG2xAtbbkSQAA2JArbbiSQWAxNAbbbSSQGAJtAbb/SSQABNtAbf/CS2xJtrbb/4CW2xNtbbf/4A22Jtrbb//AAGxNtbbf/4AAABNrbbf4AAA=");
   }
   onClickBtn35() {
-    this.utils.getMain().onInit();
-    return this.utils.getMain();
+    var app = this.utils.getMain();
+    app.onInit();
+    return app;
   }
-  onClickBtn0() {
-    this.utils.getMain().onInit();
-    return this.utils.getMain();
+  onClickBtn35() {
+    var app = this.utils.getMain();
+    app.onInit();
+    return app;
   }
   onClickBtn12() {
-    var app = this.utils.loadApp("apjsclock");
-    return app;
+    return this.utils.loadApp("apjsclock");
   }
   onClickBtn21() {
-    var app = this.utils.loadApp("apjsclock");
-    return app;
+    return this.utils.loadApp("apjsclock");
   }
   onClickBtn27() {
     var app = this.utils.loadApp("apjsclock");

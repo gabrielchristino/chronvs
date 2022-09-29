@@ -12,6 +12,7 @@ class utilsChronvs {
   }
   lockClock() {
     var app = this.loadApp("apjslock");
+    app.onInit();
     return app;
   }
   setMain(main) {

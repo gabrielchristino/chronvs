@@ -1,5 +1,5 @@
 class appChronvs {
-  constructor(tela, main, utils) {
+  constructor(tela, utils) {
     this.tela = tela;
     this.utils = utils;
   }
@@ -13,6 +13,10 @@ class appChronvs {
     var minuto = '00' + today.getMinutes();
     minuto = minuto.substr(-2);
     this.utils.drwStr(hora+':'+minuto,this.tela.getWidth()/2,this.utils.getHeight()/2);
+
+    setTimeout(() => {
+      this.utils.lockClock();
+    }, 5000);
   }
   getName() {
     return 'Time';
@@ -37,8 +41,7 @@ class appChronvs {
     return this.utils.getMain();
   }
   onClickBtn27() {
-    this.utils.lockClock()
-    return this.utils.getMain();
+    return this.utils.lockClock();
   }
 }
 exports = appChronvs

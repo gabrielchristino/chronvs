@@ -30,8 +30,7 @@ class appChronvs {
     return this.utils.getMain();
   }
   onClickBtn27() {
-    this.utils.lockClock()
-    return this.utils.getMain();
+    return this.utils.lockClock();
   }
 }
 exports = appChronvs
