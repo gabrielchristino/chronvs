@@ -23,9 +23,6 @@ class mainChronvs {
   }
   showMenu() {
     if(this.currentItem < 0) {
-      this.currentItem = this.appsList.length - 1;
-      
-    } else if(this.currentItem > this.appsList.length - 1) {
       this.currentItem = 0;
     }
     this.utils.clearScreen();
@@ -39,14 +36,19 @@ class mainChronvs {
   }
   move(index) {
     this.currentItem+=Number(index);
+    if(this.currentItem < 0) {
+      this.currentItem = this.appsList.length - 1;
+    } else if(this.currentItem > this.appsList.length - 1) {
+      this.currentItem = 0;
+    }
     this.showMenu();
   }
   openApp() {
     var app;
     if(this.currentItem < 0) {
-      app = new (require("apjsclock"))(this.tela, this, this.utils);
+      app = this.utils.loadApp("apjsclock");
     } else {
-      app = new (require(this.appsList[this.currentItem].appName))(this.tela, this, this.utils);
+      app = this.utils.loadApp(this.appsList[this.currentItem].appName);
     }
     return app;
   }
@@ -54,12 +56,10 @@ class mainChronvs {
     return 'Main';
   }
   onClickBtn35() {
-    this.utils.clearScreen();
     this.move(-1);
     return this;
   }
   onClickBtn0() {
-    this.utils.clearScreen();
     this.move(1);
     return this;
   }
@@ -68,6 +68,9 @@ class mainChronvs {
   }
   onClickBtn21() {
     return this.openApp();
+  }
+  onClickBtn27() {
+    return this.utils.lockClock();
   }
 }
 exports = mainChronvs

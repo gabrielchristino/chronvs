@@ -1,7 +1,6 @@
 class appChronvs {
-  constructor(tela, main, utils) {
+  constructor(tela, utils) {
     this.tela = tela;
-    this.main = main;
     this.utils = utils;
   }
   onInit() {
@@ -16,7 +15,7 @@ class appChronvs {
   }
   onClickBtn35() {
     this.onInit();
-    this.utils.drwStr("123456789abcdef",0,30);
+    this.utils.drwStr("1234",0,30);
     return this;
   }
   onClickBtn0() {
@@ -29,6 +28,9 @@ class appChronvs {
   }
   onClickBtn21() {
     return this.utils.getMain();
+  }
+  onClickBtn27() {
+    return this.utils.lockClock();
   }
 }
 exports = appChronvs

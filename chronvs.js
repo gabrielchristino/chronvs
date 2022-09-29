@@ -46,4 +46,4 @@ setTimeout(() => {
   this.utils.setFontA();
   this.tela.setRotation(1);
   this.tela.clear();
-}, 100);
+}, 10);

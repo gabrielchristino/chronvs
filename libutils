@@ -6,7 +6,13 @@ class utilsChronvs {
   }
   clearScreen() {
     this.tela.clear();
+    this.setFontA();
+    this.tela.setFontAlign(-1, -1, 0);
     D4.set();
+  }
+  lockClock() {
+    var app = this.loadApp("apjslock");
+    return app;
   }
   setMain(main) {
     this.main = main;
@@ -22,6 +28,17 @@ class utilsChronvs {
   }
   getHeight() {
     return 135;
+  }
+  getTime() {
+    E.setTimeZone(-3);
+    var today  = new Date();
+    var horaNum = today.getHours();
+    var gb = ( horaNum <= 12 ? horaNum*0.021+0.55 : horaNum*-0.021+1.05 );
+    this.tela.setColor(0.8, gb, gb);
+    return today;
+  }
+  loadApp(nomeApp) {
+    return new (require(nomeApp))(this.tela, this);
   }
 }
 exports = utilsChronvs

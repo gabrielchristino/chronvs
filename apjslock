@@ -1,7 +1,6 @@
 class appChronvs {
-  constructor(tela, main, utils) {
+  constructor(tela, utils) {
     this.tela = tela;
-    this.main = main;
     this.utils = utils;
   }
   onInit() {
@@ -15,24 +14,25 @@ class appChronvs {
     return atob("ABYWwwD//27TzuMOyy3sTtOu287CAAEkkkkiQAAAEkkkkkSSQAAkkkkkiSSWAEkkkkkSSS2wEkkkkiSSW2wkkkAkSQAG2JkkkAiSAQGxNkkkAiSA2BJtkkkASSAABNtkkkASSwAJtrkkiASW2ANtbkkSAS22AtrbkiSAG2xAtbbkSQAA2JArbbiSQWAxNAbbbSSQGAJtAbb/SSQABNtAbf/CS2xJtrbb/4CW2xNtbbf/4A22Jtrbb//AAGxNtbbf/4AAABNrbbf4AAA=");
   }
   onClickBtn35() {
-    this.utils.clearScreen();
-    this.main.onInit();
+    this.utils.getMain().onInit();
     return this.utils.getMain();
   }
   onClickBtn0() {
-    this.utils.clearScreen();
-    this.main.onInit();
+    this.utils.getMain().onInit();
     return this.utils.getMain();
   }
   onClickBtn12() {
-    this.utils.clearScreen();
-    var app = new (require("apjsclock"))(this.tela, this, this.utils);
-    return var;
+    var app = this.utils.loadApp("apjsclock");
+    return app;
   }
   onClickBtn21() {
-    this.utils.clearScreen();
-    var app = new (require("apjsclock"))(this.tela, this, this.utils);
-    return var;
+    var app = this.utils.loadApp("apjsclock");
+    return app;
+  }
+  onClickBtn27() {
+    var app = this.utils.loadApp("apjsclock");
+    app.onInit();
+    return app;
   }
 }
 exports = appChronvs
