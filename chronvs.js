@@ -7,7 +7,9 @@ var main = new (require("libmain"))(this.tela, this.utils);
 var app = this.main;
 
 setWatch(function(e){
-  if(e.time-e.lastTime > 1) {
+  if(e.time-e.lastTime > 3) {
+    this.app = this.app.onClickBtn27();
+  } else if(e.time-e.lastTime > 0.5) {
     this.app = this.app.onClickBtn12();
     this.app.onInit();
   } else {
@@ -16,7 +18,9 @@ setWatch(function(e){
 }, D0, { repeat: true, edge: "rising", debounce:30 });
 
 setWatch(function(e){
-  if(e.time-e.lastTime > 1) {
+  if(e.time-e.lastTime > 3) {
+    this.app = this.app.onClickBtn27();
+  } else if(e.time-e.lastTime > 0.5) {
     this.app = this.app.onClickBtn21();
     this.app.onInit();
   } else {
@@ -24,26 +28,9 @@ setWatch(function(e){
   }
 }, D35, { repeat: true, edge: "rising", debounce:30 });
 
-setWatch(function(e){
-  if(e.time-e.lastTime > 1) {
-    console.log("long");
-  } else {
-    this.app = this.app.onClickBtn12();
-    this.app.onInit();
-  }
-}, D12, { repeat: true, edge: "rising", debounce:20 });
-
-setWatch(function(e){
-  if(e.time-e.lastTime > 1) {
-    console.log("long");
-  } else {
-    console.log("short");
-    this.app.onInit();
-  }
-}, D21, { repeat: true, edge: "rising", debounce:20 });
-
 setTimeout(() => {
   this.utils.setFontA();
   this.tela.setRotation(1);
   this.tela.clear();
+  this.utils.getTime();
 }, 10);

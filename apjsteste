@@ -5,7 +5,7 @@ class appChronvs {
   }
   onInit() {
     this.utils.clearScreen();
-    this.utils.drwStr("Teste",0,0);
+    this.utils.drwStr("Gabriel",0,0);
   }
   getName() {
     return 'teste';
@@ -15,7 +15,7 @@ class appChronvs {
   }
   onClickBtn35() {
     this.onInit();
-    this.utils.drwStr("1234",0,30);
+    this.utils.drwStr("teste",0,30);
     return this;
   }
   onClickBtn0() {
