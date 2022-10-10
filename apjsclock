@@ -15,7 +15,6 @@ class appChronvs {
     this.utils.drwStr(hora+':'+minuto,this.tela.getWidth()/2,this.utils.getHeight()/2);
 
     setTimeout(() => {
-      this.utils.clearScreen();
       D4.reset();
     }, 5000);
   }
@@ -23,22 +22,20 @@ class appChronvs {
     return 'Time';
   }
   getIcon() {
-    return atob("ABYWwwD//27TzuMOyy3sTtOu287CAAEkkkkiQAAAEkkkkkSSQAAkkkkkiSSWAEkkkkkSSS2wEkkkkiSSW2wkkkAkSQAG2JkkkAiSAQGxNkkkAiSA2BJtkkkASSAABNtkkkASSwAJtrkkiASW2ANtbkkSAS22AtrbkiSAG2xAtbbkSQAA2JArbbiSQWAxNAbbbSSQGAJtAbb/SSQABNtAbf/CS2xJtrbb/4CW2xNtbbf/4A22Jtrbb//AAGxNtbbf/4AAABNrbbf4AAA=");
+    return atob("ABcXwwD//9RNtUWWPXc181VYLXg1AAAAAAAAAAAAAAABJJtAAAAAAASRJJtoAAAAASSRJJtoAAAAbSSRJNtoAAAbbSSBJNtoAAjbbSQJJNtoAHjbbSBJJNtAH8jbaQSJJNtA/8jbaCSJJtoH/8bbYSSJJtA//8bbASRJJoH//8bYASRJJA///kbYASRJIG///kbYCSRJAG///jbbSSRAA2///jbbSSIAA2///jbaSQAAA3//8jbaQAAAA3//8bbYAAAAA3//8bYAAAAAAH//8AAAAAAAAAAAAAAAAA==");
   }
   onClickBtn35() {
-    this.utils.getMain().showMenu();
-    return this.utils.getMain();
+    this.onInit();
+    return this;
   }
   onClickBtn0() {
-    this.utils.getMain().showMenu();
-    return this.utils.getMain();
+    this.onInit();
+    return this;
   }
   onClickBtn12() {
-    D4.reset();
     return this.utils.getMain();
   }
   onClickBtn21() {
-    D4.reset();
     return this.utils.getMain();
   }
   onClickBtn27() {

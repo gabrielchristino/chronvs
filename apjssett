@@ -1,0 +1,64 @@
+class appChronvs {
+  constructor(tela, utils) {
+    this.tela = tela;
+    this.utils = utils;
+    this.status = ESP32.getState();
+    this.toggleOn = atob("ABcXwwD//zcH2QSYBVoEuQT5BFkFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAW/bbZJJIAAEl2/bbZJJJAAkq37bbIAJIAkkq37bYAAJIEkku37YAAAJAkklW/bAAABIEkklW/YAAAJAkkki2/YAAJIAkkkq37YAJIAEkkku37bbJAAAkklW/bbYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==");
+    this.toggleOff = atob("ABcXwwD//zcH2QSYBVoEuQT5BFkFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAbbf+VkkgAABLbb/2skkkAAJIAb/yskkgAJIAAf+ykkkgBIAAAf+VkkkAJAAADf+VkkgBIAAAb/2skkAJIAAbb/yskgAJIALbb/ysgABJJJbbf+1kAAAJJJbbf+QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==");
+    this.currentItem = 0;
+  }
+  onInit() {
+    this.utils.clearScreen();
+    this.utils.drwStr("Settings",0,0);
+
+    this.settList = [
+      {name: "Bluetooth",
+      icon: ( this.status.BLE ? this.toggleOn : this.toggleOff ) },
+      {name: "WiFi",
+      icon: ( this.status.Wifi ? this.toggleOn : this.toggleOff ) },
+    ];
+    this.utils.move(0, this.settList, this.currentItem);
+    
+  }
+  getName() {
+    return 'Settings';
+  }
+  getIcon() {
+    return atob("ABYWwwD//27TzuMOyy3sTtOu287CAAEkkkkiQAAAEkkkkkSSQAAkkkkkiSSWAEkkkkkSSS2wEkkkkiSSW2wkkkAkSQAG2JkkkAiSAQGxNkkkAiSA2BJtkkkASSAABNtkkkASSwAJtrkkiASW2ANtbkkSAS22AtrbkiSAG2xAtbbkSQAA2JArbbiSQWAxNAbbbSSQGAJtAbb/SSQABNtAbf/CS2xJtrbb/4CW2xNtbbf/4A22Jtrbb//AAGxNtbbf/4AAABNrbbf4AAA=");
+  }
+  onClickBtn35() {
+    this.currentItem = this.utils.move(-1, this.settList, this.currentItem);
+    return this;
+  }
+  onClickBtn0() {
+    this.currentItem = this.utils.move(1, this.settList, this.currentItem);
+    return this;
+  }
+  onClickBtn12() {
+    if(this.currentItem == 0) {
+      ESP32.enableBLE(!this.status.BLE);
+    } else if(this.currentItem == 1) {
+      ESP32.enableWifi(!this.status.Wifi);
+    } else {
+      return this.utils.getMain();
+    }
+    this.onInit();
+    return this;
+  }
+  onClickBtn21() {
+    if(this.currentItem == 0) {
+      ESP32.enableBLE(!this.status.BLE);
+    } else if(this.currentItem == 1) {
+      ESP32.enableWifi(!this.status.Wifi);
+    } else {
+      return this.utils.getMain();
+    }
+    ESP32.reboot();
+    this.onInit();
+    return this;
+  }
+  onClickBtn27() {
+    return this.utils.getMain();
+  }
+}
+exports = appChronvs

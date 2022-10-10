@@ -5,15 +5,16 @@ class appChronvs {
   }
   onInit() {
     this.utils.clearScreen();
+    ESP32.deepSleep(1000000);
     D4.reset();
   }
   getName() {
-    return 'Lock screen';
+    return 'Lock';
   }
   getIcon() {
-    return atob("ABYWwwD//27TzuMOyy3sTtOu287CAAEkkkkiQAAAEkkkkkSSQAAkkkkkiSSWAEkkkkkSSS2wEkkkkiSSW2wkkkAkSQAG2JkkkAiSAQGxNkkkAiSA2BJtkkkASSAABNtkkkASSwAJtrkkiASW2ANtbkkSAS22AtrbkiSAG2xAtbbkSQAA2JArbbiSQWAxNAbbbSSQGAJtAbb/SSQABNtAbf/CS2xJtrbb/4CW2xNtbbf/4A22Jtrbb//AAGxNtbbf/4AAABNrbbf4AAA=");
+    return atob("ABcXwwD//38u3x4/D79FPzafJl8uAAAAbbbYAAAAAADbbbbbAAAAAbbbbbbbYAAAbbbbbbbbYAAbbbbADbbbYACSSSAQCSSSACSSSCSSCSSSASSSQSSQSSSQSSSSCSSCSSSW22wAAAAA222222BJJJJG22xJJIJJJJIJJJJJJBJJJJBJJNttottttottttttFttttFttottottttottoFttFttttFttAEkgAAAAAkkAAkkkkkkkkkgAAkkkkkkkkgAAAkkkkkkkgAAAAEkkkkkAAAAAAAkkkgAAAAA==");
   }
-  onClickBtn35() {
+  onClickBtn0() {
     var app = this.utils.getMain();
     app.onInit();
     return app;

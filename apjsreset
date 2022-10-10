@@ -1,0 +1,31 @@
+class appChronvs {
+  constructor(tela, utils) {
+    this.tela = tela;
+    this.utils = utils;
+  }
+  onInit() {
+    ESP32.reboot();
+  }
+  getName() {
+    return 'Restart';
+  }
+  getIcon() {
+    return atob("ABcXwwD//y3srttu087jTtOO2y7LAAAJJJJJgAAAAJJJJJJkkgAAJJJJJJkkkQAJJJJJJkkkSwBJJJJJkkkS2AJJJJJkkkS2wJJJJJkkkS2zpJJJJMkkS2ztJJJJAkgC2ztpJJJIAgA2zttJJJkgAA2ztt5JJkkgA2ztt/JJkkgAAztt/5JkkgAwAtt//JkkkA2wFt//5kkkS2ztt///kkkS2ztt///4kkS2ztt///4EkS2ztt////AkS2ztt////4AS2ztt////4AA2ztt////4AAAAtt///4AAAA==");
+  }
+  onClickBtn35() {
+    return this;
+  }
+  onClickBtn0() {
+    return this;
+  }
+  onClickBtn12() {
+    return this;
+  }
+  onClickBtn21() {
+    return this;
+  }
+  onClickBtn27() {
+    return this;
+  }
+}
+exports = appChronvs

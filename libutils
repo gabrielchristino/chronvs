@@ -1,3 +1,8 @@
+
+var tela = {};
+var libscreen = {};
+var main = {};
+var scale = 1;
 class utilsChronvs {
   constructor(tela, libscreen) {
     this.tela = tela;
@@ -7,7 +12,6 @@ class utilsChronvs {
   }
   clearScreen() {
     this.tela.clear();
-    this.setFontA();
     this.tela.setFontAlign(-1, -1, 0);
     D4.set();
   }
@@ -45,6 +49,29 @@ class utilsChronvs {
   }
   loadApp(nomeApp) {
     return new (require(nomeApp))(this.tela, this);
+  }
+  showMenu(appsList, currentItem) {
+    if(currentItem < 0) {
+      currentItem = 0;
+    }
+    this.clearScreen();
+    var yPos = -25*currentItem;
+    appsList.forEach((app, index) => {
+      if(index == currentItem) this.tela.drawRect(0, 0, this.tela.getWidth()-1, 25);
+      this.drwStr(app.icon, 1, yPos+1);
+      this.drwStr(app.name, 24, yPos+1);
+      yPos += 25;
+    });
+  }
+  move(index, appsList, currentItem) {
+    currentItem+=Number(index);
+    if(currentItem < 0) {
+      currentItem = appsList.length - 1;
+    } else if(currentItem > appsList.length - 1) {
+      currentItem = 0;
+    }
+    this.showMenu(appsList, currentItem);
+    return currentItem;
   }
 }
 exports = utilsChronvs
