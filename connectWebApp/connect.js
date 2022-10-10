@@ -12,7 +12,8 @@ async function onButtonClick() {
     }*/
   
     let options = {};
-    options.acceptAllAdvertisements = true;
+    //options.acceptAllAdvertisements = true;
+    options.filters = filters;
     /*if (document.querySelector('#allAdvertisements').checked) {
       options.acceptAllAdvertisements = true;
     } else {
