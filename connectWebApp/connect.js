@@ -20,23 +20,24 @@ async function onButtonClick() {
       options.filters = filters;
     }*/
   
+    var caixa = document.getElementById("caixa");
     try {
-      console.log('Requesting Bluetooth Scan with options: ' + JSON.stringify(options));
+      caixa.innerHTML += ('Requesting Bluetooth Scan with options: ' + JSON.stringify(options));
       const scan = await navigator.bluetooth.requestLEScan(options);
-  
-      console.log('Scan started with:');
-      console.log(' acceptAllAdvertisements: ' + scan.acceptAllAdvertisements);
-      console.log(' active: ' + scan.active);
-      console.log(' keepRepeatedDevices: ' + scan.keepRepeatedDevices);
-      console.log(' filters: ' + JSON.stringify(scan.filters));
+      caixa.innerHTML +=
+      caixa.innerHTML += ('Scan started with:');
+      caixa.innerHTML += (' acceptAllAdvertisements: ' + scan.acceptAllAdvertisements);
+      caixa.innerHTML += (' active: ' + scan.active);
+      caixa.innerHTML += (' keepRepeatedDevices: ' + scan.keepRepeatedDevices);
+      caixa.innerHTML += (' filters: ' + JSON.stringify(scan.filters));
   
       navigator.bluetooth.addEventListener('advertisementreceived', event => {
-        console.log('Advertisement received.');
-        console.log('  Device Name: ' + event.device.name);
-        console.log('  Device ID: ' + event.device.id);
-        console.log('  RSSI: ' + event.rssi);
-        console.log('  TX Power: ' + event.txPower);
-        console.log('  UUIDs: ' + event.uuids);
+        caixa.innerHTML += ('Advertisement received.');
+        caixa.innerHTML += ('  Device Name: ' + event.device.name);
+        caixa.innerHTML += ('  Device ID: ' + event.device.id);
+        caixa.innerHTML += ('  RSSI: ' + event.rssi);
+        caixa.innerHTML += ('  TX Power: ' + event.txPower);
+        caixa.innerHTML += ('  UUIDs: ' + event.uuids);
         event.manufacturerData.forEach((valueDataView, key) => {
           logDataView('Manufacturer', key, valueDataView);
         });
@@ -47,12 +48,12 @@ async function onButtonClick() {
   
       setTimeout(stopScan, 10000);
       function stopScan() {
-        console.log('Stopping scan...');
+        caixa.innerHTML += ('Stopping scan...');
         scan.stop();
-        console.log('Stopped.  scan.active = ' + scan.active);
+        caixa.innerHTML += ('Stopped.  scan.active = ' + scan.active);
       }
     } catch(error)  {
-      console.log('Argh! ' + error);
+      caixa.innerHTML += ('Argh! ' + error);
     }
   }
   
@@ -64,7 +65,7 @@ async function onButtonClick() {
     }).join(' ');
     const textDecoder = new TextDecoder('ascii');
     const asciiString = textDecoder.decode(valueDataView.buffer);
-    console.log(`  ${labelOfDataSource} Data: ` + key +
+    caixa.innerHTML += (`  ${labelOfDataSource} Data: ` + key +
         '\n    (Hex) ' + hexString +
         '\n    (ASCII) ' + asciiString);
   };
