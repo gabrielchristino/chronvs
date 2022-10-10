@@ -3,12 +3,9 @@ async function onButtonClick() {
     try {
         navigator.bluetooth.requestDevice({
             filters: [{
-              manufacturerData: [{
-                companyIdentifier: 0x0590,
-                dataPrefix: new Uint8Array([0x01, 0x02])
-              }]
+              name: 'ESP32'
             }],
-            optionalServices: ['battery_service'] // Required to access service later.
+            optionalServices: [0xBCDE] // Required to access service later.
           })
           .then(device => {
             // Human-readable name of the device.
@@ -18,7 +15,28 @@ async function onButtonClick() {
             // Attempts to connect to remote GATT Server.
             return device.gatt.connect();
           })
-          .then(device => { /* … */ })
+          .then(server => {
+            // Getting Battery Service…
+            console.log(server);
+            return server.getPrimaryService(0xBCDE);
+          })
+          .then(service => {
+            // Getting Battery Level Characteristic…
+            console.log(service);
+            return service.getCharacteristic(0xABCD);
+          })
+          .then(characteristic => {
+            // Reading Battery Level…
+            const buffer = new ArrayBuffer(8);
+            const uint8 = new Uint8Array(buffer);
+            uint8.set([1, 2, 3], 3);
+            console.log(uint8);
+            characteristic.writeValue(uint8);
+            return characteristic.readValue();
+          })
+          .then(value => {
+            console.log(value);
+          })
           .catch(error => { console.error(error); });
     } catch(error)  {
       caixa.innerHTML += ('<br> Argh! ' + error);

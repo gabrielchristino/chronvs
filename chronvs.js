@@ -6,8 +6,30 @@ var utils = new (require("libutils"))(this.tela, this.libscreen);
 var main = new (require("libmain"))(this.tela, this.utils);
 var app = this.main;
 
+function flag() {
+  console.log('teste');
+}
+
+NRF.setServices({
+  0xBCDE : {
+    0xABCD : {
+      value : "Hello",
+      readable : true,
+      writable : true,
+      onWrite : function(evt) {
+        flag();
+      }
+    }
+  }
+});
+
+// Change the name that's advertised
+NRF.setAdvertising({}, {name:"ESP32"});
+
+
+
 setWatch(function(e){
-  if(e.time-e.lastTime > 3) {
+  if(e.time-e.lastTime > 2) {
     this.app = this.app.onClickBtn27();
   } else if(e.time-e.lastTime > 0.5) {
     this.app = this.app.onClickBtn12();
@@ -18,7 +40,7 @@ setWatch(function(e){
 }, D0, { repeat: true, edge: "rising", debounce:30 });
 
 setWatch(function(e){
-  if(e.time-e.lastTime > 3) {
+  if(e.time-e.lastTime > 2) {
     this.app = this.app.onClickBtn27();
   } else if(e.time-e.lastTime > 0.5) {
     this.app = this.app.onClickBtn21();
