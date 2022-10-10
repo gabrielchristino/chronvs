@@ -9,7 +9,6 @@ class appChronvs {
   }
   onInit() {
     this.utils.clearScreen();
-    this.utils.drwStr("Settings",0,0);
 
     this.settList = [
       {name: "Bluetooth",
