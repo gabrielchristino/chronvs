@@ -6,28 +6,6 @@ var utils = new (require("libutils"))(this.tela, this.libscreen);
 var main = new (require("libmain"))(this.tela, this.utils);
 var app = this.main;
 
-function flag() {
-  console.log('teste');
-}
-
-NRF.setServices({
-  0xBCDE : {
-    0xABCD : {
-      value : "Hello",
-      readable : true,
-      writable : true,
-      onWrite : function(evt) {
-        flag();
-      }
-    }
-  }
-});
-
-// Change the name that's advertised
-NRF.setAdvertising({}, {name:"ESP32"});
-
-
-
 setWatch(function(e){
   if(e.time-e.lastTime > 2) {
     this.app = this.app.onClickBtn27();
