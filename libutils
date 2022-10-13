@@ -9,6 +9,7 @@ class utilsChronvs {
     this.libscreen = libscreen;
     this.main = {};
     this.scale = 1;
+    this.timeOut = {};
   }
   clearScreen() {
     this.tela.clear();
@@ -72,6 +73,29 @@ class utilsChronvs {
     }
     this.showMenu(appsList, currentItem);
     return currentItem;
+  }
+  startTimeout() {
+    this.timeOut = setTimeout(() => {
+      D4.reset();
+    }, 5000);
+  }
+  stopTimeout() {
+    clearTimeout(this.timeOut);
+  }
+  loadModule(moduleName, callback) {
+    console.log("https://gabrielchristino.github.io/chronvs/"+moduleName);
+    require("http").get("https://gabrielchristino.github.io/chronvs/"+moduleName, function(res) {
+      console.log("iniciando");
+      var contents = "";
+      res.on('data', function(data) { contents += data; });
+      res.on('close', function() {
+        console.log(contents);
+        Modules.addCached(moduleName, contents);
+        if (callback) callback();
+      });
+    }).on('error', function(e) {
+      console.log("ERROR", e);
+    });
   }
 }
 exports = utilsChronvs

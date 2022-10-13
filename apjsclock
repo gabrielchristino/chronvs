@@ -4,6 +4,7 @@ class appChronvs {
     this.utils = utils;
   }
   onInit() {
+    this.utils.stopTimeout();
     this.utils.clearScreen();
     this.tela.setFontAlign(0, 0, 0);
     this.tela.setFont("Vector:80");
@@ -14,9 +15,7 @@ class appChronvs {
     minuto = minuto.substr(-2);
     this.utils.drwStr(hora+':'+minuto,this.tela.getWidth()/2,this.utils.getHeight()/2);
 
-    setTimeout(() => {
-      D4.reset();
-    }, 5000);
+    this.utils.startTimeout();
   }
   getName() {
     return 'Time';
